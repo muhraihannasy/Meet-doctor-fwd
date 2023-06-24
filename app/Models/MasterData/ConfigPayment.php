@@ -8,13 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ConfigPayment extends Model
 {
-    // use HasFactory;
     use SoftDeletes;
 
-    // declare table
+    // define table
     public $table = 'config_payment';
 
-    // this field must type date yyyy-mm-dd hh:mm:ss
+    // this fields must type date
     protected $dates = [
         'created_at',
         'updated_at',

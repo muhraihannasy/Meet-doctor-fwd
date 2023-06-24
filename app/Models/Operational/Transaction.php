@@ -8,13 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Transaction extends Model
 {
-    // use HasFactory;
     use SoftDeletes;
 
-    // declare table
+    // define table
     public $table = 'transaction';
 
-    // this field must type date yyyy-mm-dd hh:mm:ss
+    // this fields must type date
     protected $dates = [
         'created_at',
         'updated_at',
@@ -27,7 +26,7 @@ class Transaction extends Model
         'fee_doctor',
         'fee_specialist',
         'fee_hospital',
-        'sub_total',
+        'subtotal',
         'vat',
         'total',
         'created_at',
@@ -35,10 +34,8 @@ class Transaction extends Model
         'deleted_at',
     ];
 
-    // one to many
-    public function appointment()
+    public function appoinment()
     {
-        // 3 parameter (path model, field foreign key, field primary key from table hasMany/hasOne)
-        return $this->belongsTo('App\Models\Operational\Appointment', 'appointment_id', 'id');
+        return $this->belongsTo('App\Models\Operational\Appoinment', 'appointment_id', 'id');
     }
 }
